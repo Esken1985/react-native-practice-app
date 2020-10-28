@@ -1,8 +1,8 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import * as Font from "expo-font";
-import Home from "./screens/home";
 import { AppLoading } from "expo";
+import Navigator from './routes/homeStack'
+
 const getFonts = () =>
   Font.loadAsync({
     "ptsans-regular": require("./assets/fonts/PTSans-Regular.ttf"),
@@ -12,7 +12,7 @@ const getFonts = () =>
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   if (fontsLoaded) {
-    return <Home />;
+    return <Navigator />;
   } else {
     return (
       <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
